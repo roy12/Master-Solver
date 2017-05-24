@@ -52,15 +52,16 @@ public class BFS <T> implements Searcher {
     }
 
 	@Override
+	public Solution search(Searchable s) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public int getNumberOfNodesEvaluated() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	@Override
-	public ArrayList search(Searchable s) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

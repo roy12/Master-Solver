@@ -94,9 +94,11 @@ public class Dijkstra <T> implements Searcher {
 	}
 
 	@Override
-	public ArrayList search(Searchable s) {
+	public Solution search(Searchable s) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 }
 
