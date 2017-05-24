@@ -46,4 +46,8 @@ public abstract class Action {
 		
 		return null;
 	}
+
+	public String getName() {
+		return name;
+	}
 }

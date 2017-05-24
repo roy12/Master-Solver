@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import stripLib.Action;
 
-public interface Searcher <T> {
-	
-	public int getNumberOfNodesEvaluated();
-	public ArrayList<Action> search(Searchable s);
 
+public interface Searcher<T> {
+	Solution search(Searchable<T> s);
+	int getNumberOfNodesEvaluated();
 }
+
