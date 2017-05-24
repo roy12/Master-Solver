@@ -9,59 +9,29 @@ import java.util.Queue;
  */
 public class BFS <T> implements Searcher {
 
-    Node startNode;
-    Node goalNode;
-
-    public BFS(Node start, Node goalNode){
-        this.startNode = start;
-        this.goalNode = goalNode;
-    }
-    
-    public BFS(){
-    }
-
-    public boolean compute(){
-
-        if(this.startNode.equals(goalNode)){
-            System.out.println("Goal Node Found!");
-            System.out.println(startNode);
-        }
-
-        Queue<Node> queue = new LinkedList<>();
-        ArrayList<Node> explored = new ArrayList<>();
-        queue.add(this.startNode);
-        explored.add(startNode);
-
-        while(!queue.isEmpty()){
-            Node current = queue.remove();
-            if(current.equals(this.goalNode)) {
-                System.out.println(explored);
-                return true;
-            }
-            else{
-                if(current.getChildren().isEmpty())
-                    return false;
-                else
-                    queue.addAll(current.getChildren());
-            }
-            explored.add(current);
-        }
-
-        return false;
-
-    }
-
-	@Override
 	public Solution search(Searchable s) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		addToOpenList(s.getInitialState());
+		HashSet<State> closedSet=new HashSet<State>();
+		while(openList.size()>0){
+		State n=popOpenList();// dequeue
+		closedSet.add(n);
+		if(n.equals(s.getGoalState()))
+		return backTrace(s.getGoalState(), s.getStartState());
+		// private method, back traces through the parents
+		ArrayList<State> successors=s.getAllPossibleStates(n) //however it is implemented
+		for(State state : successors){
+		if(!closedSet.contains(state) && ! openListContains(state)){
+		state.setCameFrom(n);
+		addToOpenList(state);
+		} else{    }
+
+
+
+}
 
 	@Override
 	public int getNumberOfNodesEvaluated() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-
 }
